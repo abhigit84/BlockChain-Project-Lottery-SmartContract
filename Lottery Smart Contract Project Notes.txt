@@ -1,7 +1,3 @@
-Github:https://github.com/kshitijofficial/Lottery
-Youtube link:https://www.youtube.com/watch?v=ZZFktsWnqfw
-
-
 We will be using:
 Metamask(Wallet),Go rely test network and faucet.
 
