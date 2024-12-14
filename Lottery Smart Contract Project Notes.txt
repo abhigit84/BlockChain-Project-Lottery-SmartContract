@@ -1,0 +1,104 @@
+Github:https://github.com/kshitijofficial/Lottery
+Youtube link:https://www.youtube.com/watch?v=ZZFktsWnqfw
+
+
+We will be using:
+Metamask(Wallet),Go rely test network and faucet.
+
+Lottery Algorithm:
+
+So a Manager will be there who controls the game.
+and Particpants are there who give some ether to Smart contract to particapate in Lottery.
+Manager will choose Winner at random and all 3 ethers will get transferred to the Winner.
+
+In this particular Lottery game Rules of Game:
+
+a.)3 or more particapants should be there and 
+b.)Particapation fees is 1 ether.
+
+1)They will particapate through participate() function created inside smart contract
+
+2)Manager will choose winner using pickWinner() function created inside smart contract
+
+Steps Explained:-
+
+1)First we will develop the Entities(Manager,Player and Winner) that are going to Particapate in the Smart Contract
+
+We will declare state variables for entities.
+
+address public manager;
+
+address payable[] public players; //We make the array as dynamic as there can be any no of particapants and we have made dynamic array will be payable in nature as 
+when an address wants to send and receive ether it should be made payable with keyword payable.
+
+address payable public winner; //will be payable in nature as 
+when an address wants to send and receive ether it should be made payable with keyword payable.
+
+
+2)Now we will set the manager of smart Contract with help of contructor function
+
+constructor()
+{
+manager=msg.sender; //with this whoever deploying at time of deployment this contract that address will get assigned to the manager
+}
+
+3)Now We will make a participate function in order for players to participate in Lottery
+
+function participate public payable(){ // We make this function payable in order for contract to accept ether and players send some ether.
+
+require(msg.value==1,"Please pay 1 ether only"); //to check if value of ether is 1 or not and if no throw message and revert.
+
+players.push(payable(msg.sender)); //we also made msg.sender which is a normal address a payable address in order to send or recieve ether
+
+}
+
+3)Now we Create getbalance() function if manager wants to check how much ether is there in contract or how many ppl participated.
+
+
+function getbalance() public view returns(uint){
+requires(manager==msg.sender,"You are not manager"); //to check if its the manager,you can keep as per your needs
+return address(this).balance:
+}
+
+4)Now we need to pick a random player from players array and make him a Winner and hence we create a function for this activity
+in this block.difficulty,block.timestamp,players.length are global variables
+
+function random() private view returns(uint){ 
+
+return uint(keccak256(abi.encodePacked(block.difficulty,block.timestamp,players.length) //this is just from demo to generate random number and dont use this enodepacked u can use oracle instaed
+
+}
+
+Uptil now You can deploy and click on different functions to see if everything is ok
+
+//make above function public if u want to deploy and check
+
+5)Now we will create our last function to Create winner
+
+function PickWinner() public{
+
+require(manager==msg.sender,"You are not the manager");
+
+require(players.length>=3,"Players are less than 3");
+
+uint r=random(); //storing value of random number in variable r
+
+uint index=r%players.length; //taking the remainder (to come down to a smaller number) or modulo of random no divided by players.length and in our case 3 and it will always be less than 3
+
+winner=player[index]; //assigning winner on basis of this random index value
+
+winner.transfer(getbalance()); //transferring whole contract balance to the winner that is 3 ethers
+
+players=new address payable[](0); // this will initialize players array back to 0 so that game can be restarted
+
+}
+
+Now we will deploy and check the various functions.
+You can select 3 particapants accounts other than manager account(through which you deployed it) and participate and then see smart contract balance after all participated
+Please dont forget to select Value of ether in dropdown otherwise particapte function will not work.
+You can see balance decreasing in account of participant u selected and increased by 1 ether of contract after u click on participate function.
+Finally u can click on Pickwinner to see the winner and his accout balance increasing by 3 ethers.
+Here u can see contract balance again reducing to 0 ether as all are transferred to winner.
+You can see getbalance function and pickwinner can only be called by when u select manager account.(the one u deployed ur contract with)
+You can click on winner to see his address.
+You can also click on players after PickWinner to see that again its initialised to 0 and there are no participants as we reset it at the last line of code.

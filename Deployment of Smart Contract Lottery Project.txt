@@ -1,0 +1,66 @@
+Mainnet-Main network that is actually deploying on Blockchain network.
+Its id is 1.
+Used for actual txns with values.
+
+Example-Ethereum Mainnet
+
+etherscan
+
+Testnet-Test Network is when  you deploy for testing purpose.No actual money is required here.
+Every testnet has own id.
+Used for testing smart contracts and dapps.
+
+Example-Sepolia/Goerli
+
+goerli.etherscan
+
+
+How to Deploy on Test Network:-
+
+
+We need a Wallet to Deploy our smart contract because you are occupying some space on the blockchain and then with wallet you are actually signing the contract 
+that you own it and deploying on blockchain.
+If you are just reading from blockchain wallet not required but if you writing on Blockchain you require a wallet.
+You have the keys setup in your Wallet to sign the contract.
+We will use Metamask Wallet for same.
+You have to install it from metamask.io
+
+Go to Metamask.io-Get Metamask-Install Metamask for chrome-Add to Chrome-add extension
+Metamask will get installed and then it will ask to set password and after that will ask for secure your wallet-secret recovery phase which is just like private key in case you forget 
+your password to login in your metamask wallet.Generate and copy it and use it next screen and done and metamask account created.
+Now you can see your external own account with Mainnet ethereum selected.
+Click on it and toggle on the Show Test Networks
+Now u want to select Goerli Test Network which is not seen anymore.(in this RPC url and network id u have to keep as it is and others u can keep anything)
+So select Sepolia.
+You can see some accounts with 0 balance but you create 1 account and name it anything by clicking on Add account or hardware wallet.
+Now to add some funds go to https://www.alchemy.com/faucets/ethereum-sepolia or search on google-Ethereum Sepolia Faucet
+signup on alchemy using gmail.
+Now the send eth button gets activated and copy paste ur account from metamask here and clcik on send eth and after some time it will credit to your account.
+
+Now go to Remix ide on ur code:-
+
+Go to left pane -Deploy tab-Enviroment dropdown-Injected provider metamask-once u click u will see ur metamask is connected to this enviroment after giving metamask creds.
+You will see your sepolia details here and account that you connected with after clicking on connect below your account in metamask.
+Now when u click on deploy button smart contract will get deployed on Sepolia test network.
+Here metamask opens and u have to confirm the transfer of funds as you need to send some ether to deploy ur smart contract on blockchain network as u will occupy space there.
+You can see in remix ide botton view etherscan status of transaction.
+Once confirmed u can see from account and contract address.
+You can click on various functions from remix ide and in particapate function which requires some money or ether then metamask window opens when u click on it unlike other functions where its just read values.
+You can change 10 wei from 1 ether as u have low balance.
+
+
+What is a testnet Ethereum faucet?
+An Ethereum faucet is a developer tool to get testnet Ether (ETH) in order to test and troubleshoot your decentralized application or protocol before going live on Ethereum mainnet, 
+where one must use real Ether. 
+Most faucets require social authentication (e.g. Twitter post or login confirming you are a real human) or place you in a queue to wait for a testnet token through the faucet. 
+The Alchemy Sepolia faucet is free, fast, and does not require authentication, though you can optionally login to Alchemy to get an increased drip.
+
+
+
+
+
+
+
+
+
+
