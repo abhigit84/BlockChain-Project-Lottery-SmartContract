@@ -1,5 +1,5 @@
 We will be using:
-Metamask(Wallet),Go rely test network and faucet.
+Metamask(Wallet),Sepolia test network and faucet.
 
 Lottery Algorithm:
 
